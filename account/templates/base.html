@@ -1,0 +1,43 @@
+{% load staticfiles %}
+  <!DOCTYPE html>
+   <html>
+   <head>
+     <title>{% block title %}{% endblock %}</title>
+     <link href="{% static "css/base.css" %}" rel="stylesheet">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   </head>
+   <body>
+   <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=1249499325201718&autoLogAppEvents=1"></script>
+  <div class="container">
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-12">
+      <div id="header">
+       <span class="logo">UNSW Marketing <div id = "status"></div> </span>
+          {% if messages %}
+     <ul class="messages">
+       {% for message in messages %}
+         <li class="{{ message.tags }}">
+{{ message|safe }}
+<a href="#" class="close">✖</a>
+         </li>
+       {% endfor %}
+     </ul>
+   {% endif %}
+       <hr>
+     </div>
+     <div id="content">
+       {% block content %}
+       {% endblock %}
+     </div>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+</div>
+   </body>
+   </html>
+
+   
