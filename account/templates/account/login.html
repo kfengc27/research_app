@@ -48,7 +48,7 @@
       cookie: true,
                           // the session
       xfbml      : true,  // parse social plugins on this page
-      version    : 'v3.0' // The Graph API version to use for the call
+      version    : 'v3.2' // The Graph API version to use for the call
     });
 
     // Now that we've initialized the JavaScript SDK, we call 
@@ -82,8 +82,19 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
+    FB.api('/me?metadata=1&fields=email,name', function(response) {
+      console.log("------------------------------");
+      
+     console.log('Successful login for: ' + response.name); 
+      console.log("The user's id is: " + response.id);
+
+       console.log('first_name: ' + response.first_name); 
+       console.log('last_name: ' + response.last_name); 
+       console.log('middle_name: ' + response.middle_name); 
+       console.log('name_format: ' + response.name_format); 
+        console.log('picture: ' + response.picture); 
+      console.log("The user's email is: " + response.email);
+       console.log()
       
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
@@ -107,7 +118,9 @@
 </script>
   <div class="row">
     <div class="col"> <a href="https://codingcompetitions.withgoogle.com/kickstart/?fbclid=IwAR2pIeMtFNnXNfE6kno-i98hpZ_GOi-tzTl07wamAEtE_gQTal-wfXEHg48" target="_blank"><button class="btn btn-secondary">Without Facebook</button></a></div>
-    <fb:login-button scope="public_profile,email, " onlogin="checkLoginState();"> </fb:login-button>
+    <fb:login-button  data-size="large" scope="public_profile,email" data-show-faces="true" data-auto-logout-link="true" onlogin="checkLoginState();"> </fb:login-button>
+</div>
+ 
   </div>
 {% endblock %}
 

@@ -24,6 +24,4 @@ def user_login(request):
             # print(form)
     return render(request, "account/login.html", {'form':form})
 
-
 # messages.error(request, 'Something went wrong')
-
