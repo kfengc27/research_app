@@ -15,7 +15,11 @@
     </div>
     <div class="col-12">
       <div id="header">
-       <span class="logo">UNSW Marketing <div id = "status" style="color:red"></div> </span>
+      <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">UNSW Marketing</a>
+</nav>
+<br>
+       {% comment %} <span class="logo">UNSW Marketing <div id = "status" style="color:red"></div> </span> {% endcomment %}
           {% if messages %}
      <ul class="messages">
        {% for message in messages %}
@@ -26,7 +30,6 @@
        {% endfor %}
      </ul>
    {% endif %}
-       <hr>
      </div>
      <div id="content">
        {% block content %}

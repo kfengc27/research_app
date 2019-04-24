@@ -30,7 +30,6 @@
         'into this app.';
     }
   }
-
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
@@ -62,13 +61,10 @@
     //    your app or not.
     //
     // These three cases are handled in the callback function.
-
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
     });
-
   };
-
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -84,10 +80,8 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?metadata=1&fields=email,name', function(response) {
       console.log("------------------------------");
-      
      console.log('Successful login for: ' + response.name); 
       console.log("The user's id is: " + response.id);
-
        console.log('first_name: ' + response.first_name); 
        console.log('last_name: ' + response.last_name); 
        console.log('middle_name: ' + response.middle_name); 
@@ -95,10 +89,8 @@
         console.log('picture: ' + response.picture); 
       console.log("The user's email is: " + response.email);
        console.log()
-      
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
-
       console.log("We will redirect to a survet page")
     });
   }
@@ -118,7 +110,7 @@
 </script>
   <div class="row">
     <div class="col"> <a href="http://www.dongst.org/" target="_blank"><button class="btn btn-secondary">Without Facebook</button></a></div>
-    <fb:login-button  data-size="large" scope="public_profile,email" data-show-faces="true" data-auto-logout-link="true" onlogin="checkLoginState();"> </fb:login-button>
+    <fb:login-button data-size="large" scope="public_profile,email" data-show-faces="true" data-auto-logout-link="true" onlogin="checkLoginState();"> </fb:login-button>
 </div>
  
   </div>
