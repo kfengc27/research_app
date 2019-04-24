@@ -9,17 +9,45 @@
    <body>
    <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=1249499325201718&autoLogAppEvents=1"></script>
-  <div class="container">
-  <div class="row">
-    <div class="col-4">
+    <nav class="navbar navbar-light" style="background-color: #1a8e88;">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="color: white">
+    <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    UNSW Marketing
+  </a>
+<div id = "status" style="color:red"></div> 
+    {% if messages %}
+     <ul class="messages">
+       {% for message in messages %}
+         <li class="{{ message.tags }}">
+{{ message|safe }}
+<a href="#" class="close">✖</a>
+         </li>
+       {% endfor %}
+     </ul>
+   {% endif %} 
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
     </div>
-    <div class="col-12">
+  </div>
+
+  </div>
+
+    </nav>
+  <div class="container">
+
+  <div class="row">
+    
       <div id="header">
-      <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">UNSW Marketing</a>
-</nav>
-<br>
-       {% comment %} <span class="logo">UNSW Marketing <div id = "status" style="color:red"></div> </span> {% endcomment %}
+
+       
+       
+        <div id = "status" style="color:red"></div> 
           {% if messages %}
      <ul class="messages">
        {% for message in messages %}
@@ -30,13 +58,12 @@
        {% endfor %}
      </ul>
    {% endif %}
-     </div>
+       <hr>
+
      <div id="content">
        {% block content %}
        {% endblock %}
      </div>
-    </div>
-    <div class="col-4">
     </div>
   </div>
 </div>
