@@ -25,7 +25,8 @@ SECRET_KEY = 'uhr)1&h92vsd(41ga8##w0m0@(a25_rxtjbx9)@mkrcwn$e$^y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'mysite.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost',
+                 'mysite.com', "unswmarketing.com.au", "wwww.unswmarketing.com.au"]
 SECURE_SSL_REDIRECT = False
 
 
