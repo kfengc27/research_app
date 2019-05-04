@@ -3,6 +3,11 @@
   
    {% block content %}
      <h2>UNSW Marketing Survey</h2> 
+     <div class="social">
+     <ul>
+       <li class="facebook"><a href="{% url "social:begin" "facebook"
+   %}">Sign in with Facebook</a></li>
+  </ul> </div>
       <p>We hope you can finish the research survey authorised with facebook.</p>
      <h4>What data is being collected from your Facebook?</h4>
      <p>Facebook appears to collect data from non-users in two main ways: From their browsing history and from their friends.</p>
@@ -112,8 +117,7 @@
     <div class="col"> <a href="http://www.dongst.org/" target="_blank"><button class="btn btn-secondary">Without Facebook</button></a></div>
     <fb:login-button data-size="large" scope="public_profile,email" data-show-faces="true" data-auto-logout-link="true" onlogin="checkLoginState();"> </fb:login-button>
 </div>
- 
-  </div>
+</div>
 {% endblock %}
 
 
