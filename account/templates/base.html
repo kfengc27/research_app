@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% comment %} {% load staticfiles %}
   <!DOCTYPE html>
    <html>
    <head>
@@ -13,7 +13,7 @@
     <div class="container">
       <a class="navbar-brand" href="#" style="color: white">
     {% comment %} <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""> {% endcomment %}
-    UNSW Marketing
+    {% comment %} UNSW Marketing
   </a>
 <div id = "status" style="color:white"></div> 
     {% if messages %}
@@ -68,6 +68,44 @@
   </div>
 </div>
    </body>
-   </html>
+   </html> {% endcomment %}
 
-   
+    {% comment %} {% endcomment %} 
+
+{% load staticfiles %}
+<!DOCTYPE html>
+   <html>
+  <div id="header">
+<span class="logo">Bookmarks</span>
+{% if request.user.is_authenticated %}
+       <ul class="menu">
+         <li {% if section == "dashboard" %}class="selected"{% endif %}>
+           <a href="{% url "dashboard" %}">My dashboard</a>
+         </li>
+         <li {% if section == "images" %}class="selected"{% endif %}>
+           <a href="#">Images</a>
+         </li>
+         <li {% if section == "people" %}class="selected"{% endif %}>
+           <a href="#">People</a>
+         </li>
+       </ul>
+     {% endif %}
+     <span class="user">
+       {% if request.user.is_authenticated %}
+         Hello {{ request.user.first_name }},
+         <a href="{% url "logout" %}">Logout</a>
+       {% else %}
+         <a href="{% url "login" %}">Log-in</a>
+       {% endif %}
+</span>
+</div>
+   <body>
+     <div id="header">
+       <span class="logo">UNSW Marketing</span>
+     </div>
+     <div id="content">
+       {% block content %}
+       {% endblock %}
+     </div>
+   </body>
+</html>

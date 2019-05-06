@@ -19,12 +19,12 @@ from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path(r'', include('account.urls')),
-    # url(r'^login/$', auth_views.login, name='login'),
-    url(r'^oauth/', include('social_django.urls', namespace='social')),
-    url('social-auth/', include('social.apps.django_app.urls', namespace='social-auth')),
-    path('admin/', admin.site.urls),
 
+    path('admin', admin.site.urls),
+    url(r'account/', include('account.urls')), 
+    # url(r'^login/$', auth_views.login, name='login'),
+    # url('^social-auth/', include('social.apps.django_app.urls', namespace='social-auth')),
+    # path('admin/', admin.site.urls),
 ]
 
 

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from django.urls import reverse
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -61,7 +62,7 @@ MIDDLEWARE = [
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
-    'social.backends.facebook.Facebook2OAuth2',
+    # 'social.backends.facebook.Facebook2OAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -142,3 +143,7 @@ SOCIAL_AUTH_FACEBOOK_KEY = '1249499325201718'  # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '54e5a1c2de81f79f3e17a080a2d43b6a'  # Facebook App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 STATE_PARAMETER = False
+
+# LOGIN_REDIRECT_URL = reverse('dashboard')
+# LOGIN_URL = reverse('login')
+# LOGOUT_URL = reverse('logout')
